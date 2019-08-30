@@ -1,7 +1,7 @@
 var promise = new Promise(function (resolve, reject) {
-    resolve(123);
+    reject(new Error("Algo malo a pasado"));
 });
-promise.then(function (res) {
-    console.log("Soy llamado:", res === 123);
+promise.then(function (res) { });
+promise["catch"](function (err) {
+    console.log("Tengo una llamada: ", err.message);
 });
-promise["catch"](function (err) { });
