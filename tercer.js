@@ -10,4 +10,6 @@ Promise.resolve(123)
     .then(function (res) {
     console.log(res);
     return Promise.resolve(123);
+})["catch"](function (err) {
+    console.log(err.message);
 });
