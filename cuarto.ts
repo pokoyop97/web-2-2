@@ -1,12 +1,17 @@
-function* generator() {
-  console.log("Execution started");
-  yield 0;
-  console.log("Execution resumed");
-  yield 1;
-  console.log("Execution resumed");
+function getFirstName() {
+  setTimeout(function() {
+    gen.next("issac");
+  }, 1000);
 }
-var iterator = generator();
-console.log("Starting iteration");
-console.log(iterator.next());
-console.log(iterator.next());
-console.log(iterator.next());
+function getSecondName() {
+  setTimeout(function() {
+    gen.next("rosales");
+  }, 1000);
+}
+function* sayHello() {
+  var a = yield getFirstName();
+  var b = yield getSecondName();
+  console.log(a, b);
+}
+var gen = sayHello();
+gen.next();

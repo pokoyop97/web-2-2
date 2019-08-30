@@ -25,25 +25,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function generator() {
+function getFirstName() {
+    setTimeout(function () {
+        gen.next("issac");
+    }, 1000);
+}
+function getSecondName() {
+    setTimeout(function () {
+        gen.next("rosales");
+    }, 1000);
+}
+function sayHello() {
+    var a, b;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.log("Execution started");
-                return [4 /*yield*/, 0];
+            case 0: return [4 /*yield*/, getFirstName()];
             case 1:
-                _a.sent();
-                console.log("Execution resumed");
-                return [4 /*yield*/, 1];
+                a = _a.sent();
+                return [4 /*yield*/, getSecondName()];
             case 2:
-                _a.sent();
-                console.log("Execution resumed");
+                b = _a.sent();
+                console.log(a, b);
                 return [2 /*return*/];
         }
     });
 }
-var iterator = generator();
-console.log("Starting iteration");
-console.log(iterator.next());
-console.log(iterator.next());
-console.log(iterator.next());
+var gen = sayHello();
+gen.next();
